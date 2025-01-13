@@ -87,12 +87,9 @@
   background-color: #c1c1c1;
   color: #666;
 }
-.iziToast.error {
-  border-radius: 4px;
-  border-bottom: 2px solid #ffbebe;
-  background: #ef4040;
-}
-
-.iziToast.error .iziToast-icon {
-  color: #fff;
+.iziToast.iziToast-error {
+  border-radius: 4px !important;
+  border-bottom: 2px solid #ffbebe !important;
+  background-color: #ef4040 !important;
+  background-color: #fff !important;
 }
