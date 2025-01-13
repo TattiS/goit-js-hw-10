@@ -3,9 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/goit-js-hw-10/favicon.svg" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Домашнє завдання №10</title>
+  <title>Snackbar</title>
+  <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-Dov3POoy.js">
   <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-CwAbCi-W.css">
 </head>
 
@@ -25,7 +28,7 @@
           <a class="nav-link {=$highlight-act}" href="../1-timer.html">Timer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="../2-snackbar.html">Snackbar</a>
+          <a class="nav-link active" href="../2-snackbar.html">Snackbar</a>
         </li>
       </ul>
     </nav>
@@ -33,28 +36,30 @@
 </header>
 
   <main>
-    <!-- Loads the specified .html file -->
-    <article class="badges">
-  <div class="container">
-    <ul class="badges-list">
-      <li class="badges-item">
-        <a class="badges-link" href="../1-timer.html" rel="noopener noreferrer">
-          Timer
-        </a>
-      </li>
-      <li class="badges-item">
-        <a class="badges-link" href="../2-snackbar.html" rel="noopener noreferrer">
-          Snackbar
-        </a>
-      </li>
-    </ul>
-  </div>
-</article>
+    <div class="container">
+      <form class="form">
+        <label>
+          Delay (ms)
+          <input type="number" name="delay" required />
+        </label>
+        <fieldset>
+          <legend>State</legend>
+          <label>
+            <input type="radio" name="state" value="fulfilled" required />
+            Fulfilled
+          </label>
+          <label>
+            <input type="radio" name="state" value="rejected" required />
+            Rejected
+          </label>
+        </fieldset>
+
+        <button type="submit">Create notification</button>
+      </form>
+
+    </div>
   </main>
-  <ul class="link-list">
-    <li class="link-list-item"><a href="./1-timer.html" class="link-item">Timer</a></li>
-    <li class="link-list-item"><a href="./2-snackbar.html" class="link-item">Promise Maker</a></li>
-  </ul>
+
   <footer class="footer">
   <div class="container">
     <p class="footer-desc">
