@@ -12,7 +12,8 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onChange(selectedDates) {
+  closeOnSelect: true,
+  onClose(selectedDates) {
     try {
       if (selectedDates[0] - new Date() <= 0) {
         iziToast.error({
@@ -22,17 +23,6 @@ const options = {
           backgroundColor: '#EF4040',
           color: '#fff',
         });
-        startButton.disabled = true;
-      } else {
-        startButton.disabled = false;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  onClose(selectedDates) {
-    try {
-      if (selectedDates[0] - new Date() <= 0) {
         startButton.disabled = true;
         userDateTime = null;
       } else {
@@ -88,7 +78,6 @@ function updateTimerDisplay(
 function resetToDefault() {
   if (intervalId) {
     clearInterval(intervalId);
-    console.log('timer is off');
   }
   updateTimerDisplay();
   startButton.disabled = true;
@@ -104,7 +93,7 @@ function updateTimer() {
   updateTimerDisplay(convertMs(difference));
 }
 
-startButton.attributes['disabled'] = true;
+startButton.disabled = true;
 
 flatpickr(datetimePicker, options);
 

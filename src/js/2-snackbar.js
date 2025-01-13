@@ -14,30 +14,22 @@ const createPromise = (delay, state) => {
         reject(delay);
       }
     }, delay);
-  })
-    .then(result => {
-      iziToast.success({ message: `Fulfilled promise in ${result}ms` });
-    })
-    .catch(result => {
-      iziToast.error({ message: `Rejected promise in ${result}ms` });
-    });
+  });
 };
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-
-  if (stateInput != null) {
-    console.log(delayInput.value);
-    console.log(stateInput.value);
-    createPromise(Number.parseInt(delayInput.value), stateInput.value);
-    form.reset();
-    stateInput = null;
-    console.dir(stateInput);
-  } else {
-    console.log('Error');
-  }
-});
-
-inputField.addEventListener('change', () => {
   stateInput = document.querySelector('[name="state"]:checked');
+  if (stateInput != null) {
+    createPromise(Number.parseInt(delayInput.value), stateInput.value)
+      .then(result => {
+        iziToast.success({ message: `Fulfilled promise in ${result}ms` });
+      })
+      .catch(result => {
+        iziToast.error({ message: `Rejected promise in ${result}ms` });
+      });
+    form.reset();
+  } else {
+    console.log('Error: stateInput is null');
+  }
 });
